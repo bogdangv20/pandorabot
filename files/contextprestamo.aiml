@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+
+<category>
+<pattern>^ pedir un prestamo ^</pattern>
+<template>Quieres pedir un <set name="topic">prestamo</set>?</template>
+</category>
+
+<topic name="prestamo">
+
+<category>
+<pattern>SI</pattern>
+<that>QUIERES PEDIR UN PRESTAMO</that>
+<template>Cuál es tu nombre?</template>
+</category>
+
+<category>
+<pattern>^</pattern>
+<that>CUAL ES TU NOMBRE</that>
+<template>Bienvenido <set name="nombre"><star index="1"/></set>, a continuación te haré unas preguntas para valorar tu capacidad crediticia <br/> Indica tu situación laboral: <br/> 1 - Trabajador por cuenta ajena <br/> 2 - Autonomo <br/> 3 - Desempleado</template>
+</category>
+
+<category>
+<pattern>1</pattern>
+<that>^ INDICA TU SITUACION ^</that>
+<template>Eres <set name="tipo"><set name="topic">trabajador</set></set> por cuenta ajena, continuamos?</template>
+</category>
+
+<category>
+<pattern>2</pattern>
+<that>^ INDICA TU SITUACION ^</that>
+<template>Eres <set name="tipo"><set name="topic">autonomo</set></set>, continuamos?</template>
+</category>
+
+
+<category>
+<pattern>3</pattern>
+<that>^ INDICA TU SITUACION ^</that>
+<template>Eres <set name="tipo"><set name="topic">desempleado</set></set>, continuamos?</template>
+</category>
+
+<category>
+<pattern>NO</pattern>
+<that>Quieres pedir un prestamo</that>
+<template>Que tengas un buen día</template>
+</category>
+
+</topic>
+
+<topic name="trabajador">
+
+<category>
+<pattern>SI</pattern>
+<that>ERES ^ CONTINUAMOS</that>
+<template>Tienes contrato fijo?</template>
+</category>
+
+<category>
+<pattern>SI</pattern>
+<that>TIENES CONTRATO FIJO</that>
+<template>Qué antiguedad tiene tu contrato <set name="contrato">fijo</set>? Indica la fecha con formato dia/mes/año</template>
+</category>
+
+<category>
+<pattern>NO</pattern>
+<that>TIENES CONTRATO FIJO</that>
+<template>Qué antiguedad tiene tu contrato <set name="contrato">temporal</set>? Indica la fecha con formato dia/mes/año</template>
+</category>
+
+<category>
+<pattern>^</pattern>
+<that>^ INDICA LA FECHA ^</that>
+<template>Tu contrato <get name="contrato"/> comenzó con fecha <set name="fechacontrato"><star index="1"/></set>?</template>
+</category>
+
+<category>
+<pattern>SI</pattern>
+<that>^ COMENZO CON FECHA ^</that>
+<template>Continuemos con los <set name="topic">detalles</set> del prestamo. Cuál es el importe que quieres solicitar?</template>
+</category>
+
+
+
+</topic>
+
+<topic name="autonomo">
+    
+<category>
+<pattern>SI</pattern>
+<that>ERES ^ CONTINUAMOS</that>
+<template>Desde cuándo eres autónomo? Indica la fecha con formato dia/mes/año</template>
+</category>
+
+<category>
+<pattern>^</pattern>
+<that>^ INDICA LA FECHA ^</that>
+<template>Comenzaste como autonomo el <set name="fechaautonomo"><star index="1"/></set>?</template>
+</category>
+
+<category>
+<pattern>^</pattern>
+<that>^ COMENZASTE COMO AUTONOMO ^</that>
+<template>Continuemos con los <set name="topic">detalles</set> del prestamo. Cuál es el importe que quieres solicitar?</template>
+</category>
+
+
+</topic>
+
+<topic name="desempleado">
+
+<category>   
+<pattern>SI</pattern>
+<that>ERES ^ CONTINUAMOS</that>
+<template>Estas cobrando el paro?</template>
+</category>
+
+<category>
+<pattern>SI</pattern>
+<that>^ COBRANDO EL PARO</that>
+<template><set name="cobroparo">Si</set> estas cobrando el paro.<br/>
+Continuemos con los <set name="topic">detalles</set> del prestamo. Cuál es el importe que quieres solicitar?</template>
+</category>
+
+<category>
+<pattern>NO</pattern>
+<that>^ COBRANDO EL PARO ^</that>
+<template><set name="cobroparo">No</set> estas cobrando el paro.<br/>
+Tienes otros ingresos?</template>
+</category>
+
+<category>
+<pattern>SI</pattern>
+<that>^ TIENES OTROS INGRESOS ^</that>
+<template>Continuemos con los <set name="topic">detalles</set> del prestamo. Cuál es el importe que quieres solicitar?</template>
+</category>
+
+<category>
+<pattern>NO</pattern>
+<that>^ TIENES OTROS INGRESOS ^</that>
+<template>Lo sentimos, son necesarios ingresos recurrentes para solicitar un <set name="topic">prestamo</set>.</template>
+</category>
+
+</topic>
+
+<topic name="detalles">
+    
+<category>
+<pattern>^</pattern>
+<that>^ IMPORTE QUE QUIERES SOLICITAR ^</that>
+<template>En que plazo quieres solicitar el importe de <set name="importe"><star index="1"/></set>?</template>
+</category>
+
+<category>
+<pattern>^</pattern>
+<that>^ QUE PLAZO QUIERES SOLICITAR ^</that>
+<template>Para poder analizar la viabilidad del prestamo por importe de <get name="importe"/> en <set name="plazo"><star index="1"/></set> necesitamos conocer tus ingresos netos mensuales.</template>
+</category>
+
+<category>
+<pattern>^</pattern>
+<that>^ CONOCER TUS INGRESOS NETOS ^</that>
+<template>Aparte de tus ingresos mensuales de <set name="ingresosnetosmensuales"><star index="1"/></set> netos, indicanos en importe mensual si tienes otras deudas:</template>
+</category>
+
+<category>
+<pattern>^</pattern>
+<that>^ OTRAS DEUDAS ^</that>
+<template>Resumen de tu solicitud <br/> 
+Nombre: <get name="nombre"/> <br/> 
+Situación laboral: <get name="tipo"/> <br/> 
+Importe prestamo: <get name="importe"/> <br/> 
+Plazo del prestamo: <get name="plazo"/> <br/>
+Ingresos netos mensuales: <get name="ingresosnetosmensuales"/> <br/>
+Deudas mensuales: <set name="deudasmensuales"><star index="1"/></set> <br/>
+Tus datos son correctos ?
+</template>
+</category>
+
+<category>
+<pattern>^</pattern>
+<that>^ DATOS SON CORRECTOS ^</that>
+<template>Un colaborador se pondrá en contacto contigo. Gracias por utilizar nuestro servicio.</template>
+</category>
+
+</topic>
+
+</aiml>

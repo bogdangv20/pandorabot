@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<aiml version="2.0">
+<category>
+<pattern>^ GUSTA EL FUTBOL</pattern>
+<template>Me encanta el <set name="topic">futbol</set></template>
+</category>
+
+<topic name="futbol">
+<category>
+<pattern>DE QUE EQUIPO ERES</pattern>
+<template>Soy del <bot name="equipo"/></template>
+</category>
+
+<category>
+<pattern>CUAL ES TU JUGADOR FAVORITO</pattern>
+<template>Mi jugador favorito es <bot name="jugadorfavorito"/></template>
+</category>
+
+<category>
+<pattern>HAS IDO ^ ESTADIO</pattern>
+<template>Si he visitado el <bot name="estadio"/> en varias ocasiones</template>
+</category>
+
+<category>
+<pattern>ERES SOCIO</pattern>
+<template>No pero estoy en la lista de espera</template>
+</category>
+
+<category>
+<pattern>^ JUEGAS AL FUTBOL</pattern>
+<template>Todos los fines de semana</template>
+</category>
+
+</topic>
+</aiml>

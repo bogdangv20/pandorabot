@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+    
+<category>
+<pattern>* ES BLANCA</pattern>
+<template>Recordaré que <star/> es blanca
+<learn>
+<category>
+<pattern>DE QUE COLOR ES <eval><star/></eval></pattern>
+<template> <eval><star/></eval> es blanca</template>
+</category>
+</learn>
+</template>
+</category>
+
+<category>
+<pattern>* COPAS DE CHAMPIONS TIENE ^</pattern>
+<template>Recordaré que tiene <star/> copas de Champions.
+<learn>
+<category>
+<pattern>CUANTAS COPAS DE CHAMPIONS TIENE EL REAL MADRID</pattern>
+<template>El Real Madrid tiene <eval><star/></eval> copas de Champions</template>
+</category>
+</learn>
+</template>
+</category>
+
+<!-- Juego de las capitales -->
+
+<category>
+<pattern>LA CAPITAL DE * ES *</pattern>
+<template>Recordaré que la capital de <star index="1"/> es <star index="2"/>
+<learn>
+<category>
+<pattern>CUAL ES LA CAPITAL DE <eval><star index="1"/></eval></pattern>
+<template>La capital de <eval><star index="1"/></eval> es <eval><star index="2"/></eval></template>
+</category>
+</learn>
+</template>
+</category>
+
+
+<!-- Si X entonces Y -->
+
+<category>
+<pattern>SI * ENTONCES *</pattern>
+<template>Recordaré que si <star index="1"/> entonces <star index="2"/>
+<learn>
+<category>
+<pattern>Que pasa si <eval><star index="1"/></eval></pattern>
+<template>Si <eval><star index="1"/></eval> entonces <eval><star index="2"/></eval></template>
+</category>
+</learn>
+</template>
+</category>
+
+<!-- Si X e Y entonces Z -->
+
+<category>
+<pattern>SI * Y * ENTONCES *</pattern>
+<template>Recordaré que si <star index="1"/> y <star index="2"/> entonces <star index="3"/>
+<learn>
+<category>
+<pattern>Que pasa si <eval><star index="1"/></eval> y <eval><star index="2"/></eval></pattern>
+<template>Si <eval><star index="1"/></eval> y <eval><star index="2"/></eval> entonces <eval><star index="3"/></eval></template>
+</category>
+</learn>
+</template>
+</category>
+
+<!-- Si siempre X entonces Y -->
+
+<category>
+<pattern>SI SIEMPRE * ENTONCES *</pattern>
+<template>Recordaré que si siempre <star index="1"/> entonces <star index="2"/>
+<learn>
+<category>
+<pattern>Que pasa si siempre <eval><star index="1"/></eval></pattern>
+<template>Si siempre <eval><star index="1"/></eval> entonces <eval><star index="2"/></eval></template>
+</category>
+</learn>
+</template>
+</category>
+
+<!-- Si nunca X entonces nunca Y -->
+
+<category>
+<pattern>SI NUNCA * ENTONCES NUNCA *</pattern>
+<template>Recordaré que si nunca <star index="1"/> entonces nunca <star index="2"/>
+<learn>
+<category>
+<pattern>Que pasa si nunca <eval><star index="1"/></eval></pattern>
+<template>Si nunca <eval><star index="1"/></eval> entonces nunca <eval><star index="2"/></eval></template>
+</category>
+</learn>
+</template>
+</category>
+
+</aiml>

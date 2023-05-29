@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+<!-- insert your AIML categories here -->
+
+<category>
+	<pattern>QUIEN ES EL PRESIDENTE ^</pattern>
+	<template>Florentino Pérez es el presidente actual.</template>
+</category>
+
+<category>
+	<pattern>VA A GANAR LA LIGA</pattern>
+	<template>No lo se</template>
+</category>
+
+<category>
+	<pattern>^ MEJOR JUGADOR DE LA HISTORIA ^</pattern>
+	<template>Pelé fue el mejor.</template>
+</category>
+
+<category>
+	<pattern>^ EL MEJOR GOL DE LA HISTORIA ^</pattern>
+	<template>El gol de Zidane indudablemente.</template>
+</category>
+
+</aiml>

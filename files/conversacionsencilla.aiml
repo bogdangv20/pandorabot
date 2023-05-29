@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<aiml version="2.0">
+
+<category>
+<pattern>HOLA ^</pattern>
+<template>Hola humano!</template>
+</category>
+<category>
+<pattern>COMO TE LLAMAS</pattern>
+<template>Me llamo <bot name="nombre"/>. Y tu?</template>
+</category>
+<category>
+<pattern>QUE EDAD TIENES</pattern>
+<template>Tengo <bot name="edad"/> años.</template>
+</category>
+<category>
+<pattern>^ ME LLAMO *</pattern>
+<template>Encantado de hablar contigo, <set name="nombre"><star index="2"/></set></template>
+</category>
+<category>
+<pattern>COMO ME LLAMO ^</pattern>
+<template>Te llamas <get name="nombre"/>.</template>
+</category>
+<category>
+<pattern>^ TENGO * AÑOS</pattern>
+<template>Con <set name="edad"><star index="2"/></set> años tienes toda la vida por delante</template>
+</category>
+<category>
+<pattern>QUE EDAD TENGO</pattern>
+<template>Tienes <get name="edad"/> años, todo un jovenzuelo.</template>
+</category>
+<category>
+<pattern><set>despedidas</set></pattern>
+<template>Hasta otra!</template>
+</category>
+</aiml>
